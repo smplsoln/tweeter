@@ -1,0 +1,50 @@
+
+nav {
+  /* font-family: 'Bungee', cursive;
+  font-family: 'Source Sans Pro', sans-serif; */
+  /* 120 pixels in height
+  Full width of the viewport
+  #4056A1 as its default background colour
+  #FFFFFF as its default font colour */
+  height: 120px;
+  width: auto;
+  background-color: #4056A1;
+  color: #FFFFFF;
+
+  /* margin-left: 1.5em;
+  margin-right: 1.5em; */
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+span {
+  font-family: 'Bungee', cursive;
+  font-size: 40px;
+  display: flex;
+  /* align-self: center; */
+}
+
+.writetweet {
+  font-size: 16px;
+  display: flex;
+  align-self: center;
+  flex-direction: column;
+  /* justify-items: end; */
+  align-items: center;
+}
+
+.writetweet.p {
+  /* font-family: 'Source Sans Pro', sans-serif; */
+  /* display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+} */
+/* .writetweet.i {
+  font-size: 24;
+  color: crimson;
+} */
