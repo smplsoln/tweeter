@@ -1,11 +1,10 @@
 
 nav {
-  /* font-family: 'Bungee', cursive;
-  font-family: 'Source Sans Pro', sans-serif; */
-  /* 120 pixels in height
-  Full width of the viewport
-  #4056A1 as its default background colour
-  #FFFFFF as its default font colour */
+  /* position: absolute; */
+  /* top: 0; */
+  /* left: 0; */
+  /* position: absolute;
+  z-index: 2; */
   height: 120px;
   width: auto;
   background-color: #4056A1;
@@ -36,7 +35,7 @@ span {
   align-items: center;
 }
 
-.writetweet.p {
+/* .writetweet.p { */
   /* font-family: 'Source Sans Pro', sans-serif; */
   /* display: block;
   margin-block-start: 1em;
