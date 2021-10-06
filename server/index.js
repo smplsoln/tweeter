@@ -6,11 +6,13 @@ const PORT          = 8080;
 const express       = require("express");
 const morgan        = require('morgan');
 const bodyParser    = require("body-parser");
+const favicon       = require('serve-favicon');
 const app           = express();
 
-app.use(morgan('dev'));
-app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
+app.use(morgan('dev'));
+app.use(favicon('./public/images/favicon.ico'));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // The in-memory database of tweets. It's a basic object with an array in it.
 const db = require("./lib/in-memory-db");

@@ -1,9 +1,11 @@
 
 .new-tweet {
+  padding-left: 5%;
   display: flex;
   align-self: center;
   flex-direction: column;
   width: 100%;
+  justify-self: center;
 }
 
 .button-counter-footer {

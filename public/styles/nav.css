@@ -30,6 +30,15 @@ nav {
   align-items: center;
 }
 
+.write-a-new-tweet {
+  display: flex;
+  flex-direction: row;
+}
+
+.a-new-tweet {
+  white-space: pre;
+}
+
 .down-arrow {
   font-size: 17px;
   color:red;
