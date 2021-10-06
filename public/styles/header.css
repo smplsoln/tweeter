@@ -1,11 +1,15 @@
 header {
-  /* position: fixed;
-  z-index: 1; */
   height: 400px;
   width: inherit;
   display: flex;
   flex-direction: column;
+  justify-content: end;
   align-items: center;
+  margin-top: 120px;
   background-color: #edae97;
   background-image: url("https://www.transparenttextures.com/patterns/cloth-alike.png");
 }
+
+/* .user-name-banner {
+
+} */
