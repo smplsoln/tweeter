@@ -3,10 +3,19 @@ main {
   z-index: 1; */
   /* height: 400px; */
   width: 95%;
+  margin-top: 500px;
+
   /* display: flex;
   flex-direction: column;
   justify-self: center; */
   /* align-items: center; */
   /* background-color: #edae97;
   background-image: url("https://www.transparenttextures.com/patterns/cloth-alike.png"); */
+}
+
+.fixed-header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  /* margin-top: 480px; */
 }

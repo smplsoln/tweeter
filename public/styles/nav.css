@@ -1,12 +1,11 @@
 
 nav {
-  position: fixed;
-  top: 0;
+
   /* left: 0; */
   /* z-index: 100; */
   height: 120px;
   width: 100%;
-  background-color: #4056A1;
+  background-color: #d3a12d;
   color: #FFFFFF;
 
   padding-left: 1.5em;
@@ -39,7 +38,51 @@ nav {
   white-space: pre;
 }
 
-.down-arrow {
+
+.bounce {
   font-size: 17px;
   color:red;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  -moz-animation: bounce 0.5s infinite linear;
+  -o-animation: bounce 0.5s infinite linear;
+  -webkit-animation: bounce 0.5s infinite linear;
+  animation: bounce 0.5s infinite linear;
 }
+
+@-webkit-keyframes bounce {
+    0% { top: 0; }
+    50% { top: -0.2em; }
+    70% { top: -0.3em; }
+    100% { top: 0; }
+}
+@-moz-keyframes bounce {
+    0% { top: 0; }
+    50% { top: -0.2em; }
+    70% { top: -0.3em; }
+    100% { top: 0; }
+}
+@-o-keyframes bounce {
+    0% { top: 0; }
+    50% { top: -0.2em; }
+    70% { top: -0.3em; }
+    100% { top: 0; }
+}
+@-ms-keyframes bounce {
+    0% { top: 0; }
+    50% { top: -0.2em; }
+    70% { top: -0.3em; }
+    100% { top: 0; }
+}
+@keyframes bounce {
+    0% { top: 0; }
+    50% { top: -0.2em; }
+    70% { top: -0.3em; }
+    100% { top: 0; }
+}
+
+
+
+
+
