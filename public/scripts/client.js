@@ -229,8 +229,6 @@ $(document).ready(() => {
 
     let tweet = getTweet(event);
 
-    // clear the tweet text input
-    $tweetInputTextArea.val('');
 
     // reset counter value to max tweet length
     const counterOp = this[2];
@@ -246,6 +244,8 @@ $(document).ready(() => {
     // send current tweet to server to store
     const serializedTweet = $(this).serialize();
     console.log({ serializedTweet });
+    // clear the tweet text input
+    $tweetInputTextArea.val('');
 
     $.post("/tweets", serializedTweet, (response) => {
       console.log(response);
