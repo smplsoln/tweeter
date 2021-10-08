@@ -25,8 +25,6 @@ const textInputHandler = function(event) {
   // save latest tweet text value
   twtxtInput = event.target.value;
 
-  // console.log(`Keyup on ${event.target.id} has text: ${twtxtInput} of length ${twtxtInput.length}`);
-
   // set counter value as per the latest tweet text
   const counterOp = this.form[2];
   let counter = counterOp.value;
@@ -37,8 +35,6 @@ const textInputHandler = function(event) {
   // set apt counter color
   setTweetCounterColor(counter);
 
-  // set tweet button state
-  setTweetButtonState(counter);
 };
 
 // After HTML document is loaded

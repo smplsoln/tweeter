@@ -11,48 +11,7 @@ const MAX_TWEET_CHARS = 140;
 const $tweetInputForm = $("#tweet-input-form");
 const $tweetInputTextArea = $('#tweet-text');
 const $tweetsSection = $('.tweets-section');
-
-// dummy tweet tweetsDataStore
-const tweetData = {
-  "user": {
-    "name": "Newton",
-    "avatars": "https://i.imgur.com/73hZDYK.png",
-    "handle": "@SirIsaac"
-  },
-  "content": {
-    "text": "If I have seen further it is by standing on the shoulders of giants"
-  },
-  "created_at": 1451116232227
-};
-
-const tweetsDataStore = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png"
-      ,
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1571116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd"
-    },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
-  }
-];
-
-
-
+const $divError = $("#tweet-error-box");
 /**
  * Takes in a tweet object and returns a tweet
  * <article> element containing the entire HTML
@@ -143,9 +102,9 @@ const createTweetElement = function(tweet) {
         </div>
 */
 
-const getTweet = function(event) {
+// generate a tweet object based on current tweet input
+const getTweet = function(tweetTextInput) {
   // form[0]textarea.value := input text
-  const tweetTextInput = event.target[0].value;
   let tweet = {
     "user": {
       "name": "IAmGroot",
@@ -161,10 +120,22 @@ const getTweet = function(event) {
   return tweet;
 };
 
+// Handler for counter color as per
+// the text input length
+const setCounterColor = function(counter) {
+  if (counter < 0) {
+    $(".counter").css("color", "red");
+  } else {
+    $(".counter").css("color", "black");
+  }
+};
+
+// comparator for the tweet time
 const compareTweetTime = function(tw1, tw2) {
   return tw1.created_at - tw2.created_at;
 };
 
+// render the tweets to the tweets section
 const renderTweets = function(tweets) {
   // loops through tweets
   // calls createTweetElement for each tweet
@@ -183,14 +154,8 @@ const renderTweets = function(tweets) {
   }
 };
 
-const setCounterColor = function(counter) {
-  if (counter < 0) {
-    $(".counter").css("color", "red");
-  } else {
-    $(".counter").css("color", "black");
-  }
-};
-
+// Perform a GET request to server and render
+// the fetched tweets to the APP tweet section
 const getTweetsFromServer = function() {
   $.ajax({
     url: "/tweets",
@@ -207,54 +172,54 @@ const getTweetsFromServer = function() {
   });
 };
 
+// Handler for tweet form submit
+const tweetSubmitHandler = function(event) {
+  console.log(event);
 
-// App html loaded and ready
-$(document).ready(() => {
-  // Test / driver code (temporary)
-  // $('#tweets-container').append($tweet);
-  // const $tweet = createTweetElement(tweetData);
-  // console.log($tweet); // to see what it looks like
-  // $('.tweets-section').append($tweet);
+  // IMP: prevent default for action like POST, etc
+  event.preventDefault();
 
-  // render tweets from an attar of tweets 'tweetsDataStore'
-  renderTweets(tweetsDataStore);
+  const tweetTextInput = event.target[0].value;
 
-  // setup tweet button handler
-  $tweetInputForm.submit(function(event) {
+  if (!tweetTextInput) {
+    $divError.text(`Error: Tweet empty! Please enter tweet text!`);
+    $divError.show(500);
+    return;
+  }
+  if ((tweetTextInput) && tweetTextInput.length > MAX_TWEET_CHARS) {
+    $divError.text(`Error: Maximum tweet length (${MAX_TWEET_CHARS}) exceeded!`);
+    $divError.show(500);
+    return;
+  }
+  $divError.hide();
 
-    console.log(event);
+  // reset counter value to max tweet length
+  const counterOp = this[2];
+  counterOp.value = MAX_TWEET_CHARS;
+  setCounterColor(MAX_TWEET_CHARS);
 
-    // prevent default for action like POST, etc
-    event.preventDefault();
+  // send current tweet to server to store
+  const serializedTweet = $(this).serialize();
+  console.log({ serializedTweet });
+  // clear the tweet text input
+  $tweetInputTextArea.val('');
 
-    let tweet = getTweet(event);
+  // POST the tweet to server
+  $.post("/tweets", serializedTweet, (response) => {
+    // tweet successfully posted to server
+    console.log(response);
 
-    // reset counter value to max tweet length
-    const counterOp = this[2];
-    counterOp.value = MAX_TWEET_CHARS;
-    setCounterColor(MAX_TWEET_CHARS);
-
-    // add this tweet to tweets tweetsDataStore store
-    tweetsDataStore.unshift(tweet);
-
-    // render tweets from an attar of tweets 'tweetsDataStore'
-    renderTweets(tweetsDataStore);
-
-    // send current tweet to server to store
-    const serializedTweet = $(this).serialize();
-    console.log({ serializedTweet });
-    // clear the tweet text input
-    $tweetInputTextArea.val('');
-
-
-    $.post("/tweets", serializedTweet, (response) => {
-    // $.post("/tweets", serializedTweet, (response) => {
-      console.log(response);
-
-      // tweet was sent successfully at server
-      // now get latest and put in tweets section
-      getTweetsFromServer();
-    });
+    // now get latest and put in tweets section
+    getTweetsFromServer();
   });
-});
+};
 
+// App html loaded and perform the initial setup
+$(document).ready(() => {
+  // this is the initial one time
+  // setup of the tweets section on app
+  getTweetsFromServer();
+
+  // setup tweet button handler for tweet submit
+  $tweetInputForm.submit(tweetSubmitHandler);
+});
