@@ -1,15 +1,18 @@
 /*
- * Client-side JS logic goes here
- * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
- */
+* Client-side JS logic goes here
+* jQuery is already loaded
+* Reminder: Use (and do all your DOM work in) jQuery's document ready function
+*/
 
 /**
  * The tweets section of the App
  */
+const MAX_TWEET_CHARS = 140;
+const $tweetInputForm = $("#tweet-input-form");
+const $tweetInputTextArea = $('#tweet-text');
 const $tweetsSection = $('.tweets-section');
 
-
+// dummy tweet tweetsDataStore
 const tweetData = {
   "user": {
     "name": "Newton",
@@ -22,7 +25,7 @@ const tweetData = {
   "created_at": 1451116232227
 };
 
-const data = [
+const tweetsDataStore = [
   {
     "user": {
       "name": "Newton",
@@ -39,7 +42,8 @@ const data = [
     "user": {
       "name": "Descartes",
       "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd" },
+      "handle": "@rd"
+    },
     "content": {
       "text": "Je pense , donc je suis"
     },
@@ -139,6 +143,24 @@ const createTweetElement = function(tweet) {
         </div>
 */
 
+const getTweet = function(event) {
+  // form[0]textarea.value := input text
+  const tweetTextInput = event.target[0].value;
+  let tweet = {
+    "user": {
+      "name": "IAmGroot",
+      "avatars": "https://i.imgur.com/73hZDYK.png",
+      "handle": "@IAmGroot"
+    },
+    "content": {
+      "text": `I am Groot ${tweetTextInput}`
+    },
+    "created_at": Date.now()
+  };
+
+  return tweet;
+};
+
 const compareTweetTime = function(tw1, tw2) {
   return tw1.created_at - tw2.created_at;
 };
@@ -161,6 +183,15 @@ const renderTweets = function(tweets) {
   }
 };
 
+const setCounterColor = function(counter) {
+  if (counter < 0) {
+    $(".counter").css("color", "red");
+  } else {
+    $(".counter").css("color", "black");
+  }
+};
+
+// App html loaded and ready
 $(document).ready(() => {
   // Test / driver code (temporary)
   // $('#tweets-container').append($tweet);
@@ -168,7 +199,35 @@ $(document).ready(() => {
   // console.log($tweet); // to see what it looks like
   // $('.tweets-section').append($tweet);
 
-  // render tweets from an attar of tweets 'data'
-  renderTweets(data);
+  // render tweets from an attar of tweets 'tweetsDataStore'
+  renderTweets(tweetsDataStore);
+
+  // setup tweet button handler
+  $tweetInputForm.submit(function(event) {
+
+    console.log(event);
+
+    // prevent default for action like POST, etc
+    event.preventDefault();
+
+    let tweet = getTweet(event);
+
+    // clear the tweet text input
+    $tweetInputTextArea.val('');
+
+    // reset counter value to max tweet length
+    const counterOp = this[2];
+    counterOp.value = MAX_TWEET_CHARS;
+    setCounterColor(MAX_TWEET_CHARS);
+
+    // add this tweet to tweets tweetsDataStore store
+    tweetsDataStore.unshift(tweet);
+
+    // render tweets from an attar of tweets 'tweetsDataStore'
+    renderTweets(tweetsDataStore);
+
+  });
 
 });
+
+
