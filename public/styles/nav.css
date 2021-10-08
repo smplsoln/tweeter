@@ -23,7 +23,7 @@ nav {
 
 .write-tweet {
   font-family: 'Source Sans Pro', sans-serif;
-  font-size: 18px;
+  font-size: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -45,10 +45,10 @@ nav {
   cursor: pointer;
   display: inline-block;
   position: relative;
-  -moz-animation: bounce 0.5s infinite linear;
-  -o-animation: bounce 0.5s infinite linear;
-  -webkit-animation: bounce 0.5s infinite linear;
-  animation: bounce 0.5s infinite linear;
+  -moz-animation: bounce 0.8s infinite linear;
+  -o-animation: bounce 0.8s infinite linear;
+  -webkit-animation: bounce 0.8s infinite linear;
+  animation: bounce 0.8s infinite linear;
 }
 
 @-webkit-keyframes bounce {

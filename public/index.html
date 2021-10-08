@@ -53,18 +53,19 @@
           <div>
               <img src="/images/profile-hex.png">
           </div>
-          <div>
-              <h2 class="user-name-banner">Your Name</h2>
-          </div>
+          <span class="username-banner">
+            <span> <strong>Amy</strong> Mansell</span>
+          </span>
       </header>
     </div>
     <!-- Page-specific (main) content here -->
     <main class="container main-compose">
       <section class="new-tweet">
-        <h3>Compose Tweet</h3>
+        <!-- h3>Compose Tweet</h3 -->
         <form method="POST" action="/tweets">
-          <label for="tweet-text">What are you humming about?</label>
-          <textarea class="tweet-input" name="text" id="tweet-text"></textarea>
+          <!-- label for="tweet-text">What are you humming about?</label -->
+          <h3></h3>
+          <textarea class="tweet-input" name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
           <div class="button-counter-footer">
             <button class="tweet-button" type="submit" disabled="true">Tweet</button>
             <output name="counter" class="counter" for="tweet-text">140</output>
@@ -76,21 +77,21 @@
       <div class="box tweet-article-border">
         <article class="tweet-article">
           <header class="tweet-article-header">
-            <div class="tweet-author-avatar">
-              <img src="https://i.imgur.com/73hZDYK.png" class="tweet-avatar-image" alt="">
-              <p class="tweet-author-name">Newton</p>
-            </div>
+            <span class="tweet-author-avatar">
+              <img src="https://i.imgur.com/73hZDYK.png" class="tweet-author-image" alt=""><pre> </pre>
+              <p class="tweet-author-name">Newton</p><pre> </pre>
+            </span>
             <p class="tweet-author-handle">@SirIsaac</p>
           </header>
           <p class="tweet-display-text">Standing on the shoulders of giants
           </p>
           <div class="tweet-footer">
             <p class="tweet-days-ago">10 days ago</p>
-            <div class="tweet-article-footer-icons">
-              <i class="fas fa-flag tweet-flag-icon"></i>
-              <i class="fas fa-retweet tweet-retweet-icon"></i>
-              <i class="fas fa-heart tweet-heart-icon"></i>
-            </div>
+            <span class="tweet-article-footer-icons">
+              <i class="fas fa-flag tweet-flag-icon"></i><pre> </pre>
+              <i class="fas fa-retweet tweet-retweet-icon"></i><pre> </pre>
+              <i class="fas fa-heart tweet-heart-icon"></i><pre> </pre>
+            </span>
           </div>
         </article>
       </div>

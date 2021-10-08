@@ -1,6 +1,6 @@
 
 .new-tweet {
-  padding-left: 3%;
+  padding-left: 5%;
   display: flex;
   align-self: center;
   flex-direction: column;
@@ -17,7 +17,7 @@
 
 .tweet-input {
   width: 100%;
-  height: 90%
+  height: 90%;
   padding: 0%;
   margin: 0%;
   border-top: transparent;
@@ -34,9 +34,12 @@
   font-size: 20px;
   color: beige;
   background-color: rgb(65, 65, 143);
+  border-radius: 3px;
+  cursor: pointer;
 }
 
 .counter {
   font-family: 'Bungee', cursive;
-  font-size: 18px;
+  font-size: 20px;
+  font-weight: 80%;
 }
