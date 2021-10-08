@@ -191,6 +191,23 @@ const setCounterColor = function(counter) {
   }
 };
 
+const getTweetsFromServer = function() {
+  $.ajax({
+    url: "/tweets",
+    method: "GET",
+    // dataType: "json", // for now dont set data type
+    success: (tweets) => {
+      console.log("tweets from server GET /tweets:", tweets);
+      renderTweets();
+    },
+
+    error: (err) => {
+      console.log(`Error during GET /tweets: ${err}`);
+    }
+  });
+};
+
+
 // App html loaded and ready
 $(document).ready(() => {
   // Test / driver code (temporary)
@@ -226,8 +243,17 @@ $(document).ready(() => {
     // render tweets from an attar of tweets 'tweetsDataStore'
     renderTweets(tweetsDataStore);
 
+    // send current tweet to server to store
+    const serializedTweet = $(this).serialize();
+    console.log({ serializedTweet });
+
+    $.post("/tweets", serializedTweet, (response) => {
+      console.log(response);
+
+      // tweet was sent successfully at server
+      // now get latest and put in tweets section
+      getTweetsFromServer();
+    });
   });
-
 });
-
 
