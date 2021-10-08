@@ -198,7 +198,7 @@ const getTweetsFromServer = function() {
     // dataType: "json", // for now dont set data type
     success: (tweets) => {
       console.log("tweets from server GET /tweets:", tweets);
-      renderTweets();
+      renderTweets(tweets);
     },
 
     error: (err) => {
@@ -229,7 +229,6 @@ $(document).ready(() => {
 
     let tweet = getTweet(event);
 
-
     // reset counter value to max tweet length
     const counterOp = this[2];
     counterOp.value = MAX_TWEET_CHARS;
@@ -247,7 +246,9 @@ $(document).ready(() => {
     // clear the tweet text input
     $tweetInputTextArea.val('');
 
+
     $.post("/tweets", serializedTweet, (response) => {
+    // $.post("/tweets", serializedTweet, (response) => {
       console.log(response);
 
       // tweet was sent successfully at server

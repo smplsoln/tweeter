@@ -21,6 +21,11 @@
   /* transition: margin-right 2s ease-in-out; */
 }
 
+.tweet-article-border:hover {
+  box-shadow: 5px 5px 5px #555;
+}
+
+
 .tweet-article-header {
   background-color: transparent;
   display: flex;
