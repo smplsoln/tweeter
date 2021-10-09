@@ -5,26 +5,20 @@
   margin: 0%;
   background-color: transparent;
   padding-left: 5%;
-  /* border-radius: 5px; */
 }
-
 
 .tweet-article-border {
   display: box;
   margin-top: 2%;
   margin-bottom: 2%;
   padding: 2%;
-  /* display: block; */
   border: 4px solid #545149;
   border-radius: 5px;
-  /* box-shadow: 3px 3px 4px #000; */
-  /* transition: margin-right 2s ease-in-out; */
 }
 
 .tweet-article-border:hover {
   box-shadow: 5px 5px 5px #555;
 }
-
 
 .tweet-article-header {
   background-color: transparent;

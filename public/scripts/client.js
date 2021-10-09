@@ -130,14 +130,13 @@ const getTweetsFromServer = function() {
     },
 
     error: (err) => {
-      console.log(`Error during GET /tweets: ${err}`);
+      console.error(`Error during GET /tweets: ${err}`);
     }
   });
 };
 
 // Handler for tweet form submit
 const tweetSubmitHandler = function(event) {
-  console.log(event);
 
   // IMP: prevent default for action like POST, etc
   event.preventDefault();
@@ -163,15 +162,12 @@ const tweetSubmitHandler = function(event) {
 
   // send current tweet to server to store
   const serializedTweet = $(this).serialize();
-  console.log({ serializedTweet });
   // clear the tweet text input
   $tweetInputTextArea.val('');
 
   // POST the tweet to server
   $.post("/tweets", serializedTweet, (response) => {
     // tweet successfully posted to server
-    console.log(response);
-
     // now get latest and put in tweets section
     getTweetsFromServer();
   });

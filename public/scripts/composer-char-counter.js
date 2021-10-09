@@ -15,7 +15,6 @@ const textInputHandler = function(event) {
   let counter = counterOp.value;
   counterOp.value = MAX_TWEET_LENGTH - twtxtInput.length;
   counter = counterOp.value;
-  console.log(`Counter after input ${counter}`);
 
   // set apt counter color
   setCounterColor(counter);

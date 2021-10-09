@@ -15,3 +15,34 @@ This repository is the starter code for the project: Students will fork and clon
 
 - Express
 - Node 5.10.x or above
+- body-parser": "^1.15.2",
+- chance": "^1.0.2",
+- md5: "^2.1.0",
+- Morgan": "^1.10.0",
+- serve-favicon": "^2.5.0"
+
+## Final Product
+
+
+## Getting Started
+
+- Install all dependencies (using the `npm install` command).
+- Run the development web server using one of the  following commands:
+  - `npm start := "node server/index.js",`
+  - `local := "./node_modules/.bin/nodemon --watch server -e js server/index.js"`
+
+# Tweeter app includes the following
+Apart from implementing all the major, minor requirements have additionally added
+ - Completed the stretch requirement of
+   - implementation of the compose tweet toggler icon at top right
+   - got to top button at the bottom right
+   - Added Favicon support
+
+# Possible Future Enhancements
+  - Refactor the server side logic to make is restful and provide a restful API
+  - Separate out the view and base it on the use of REST apis underneath
+  - Improve observability by adding appropriate logging on server side
+  - Add integrated metrics tracking
+  - Move the UI esp the views to a better framework having better easier control on components and refactor/componentize it further
+  - Add distinct persistence layer: NoSQL/DB/Or a backend PaaS
+  - Add automated CI/CD workflow with layered code-review, tests outcome reporting, static analysis reporting, reporting checkpoints, code coverage reporting
