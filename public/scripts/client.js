@@ -12,6 +12,9 @@ const $tweetInputForm = $("#tweet-input-form");
 const $tweetInputTextArea = $('#tweet-text');
 const $tweetsSection = $('.tweets-section');
 const $divError = $("#tweet-error-box");
+const $goToTopButtom = $("#go-to-top-button");
+const tweetComposeToggleIcon = $("#tweet-compose-toggle-icon");
+
 /**
  * Takes in a tweet object and returns a tweet
  * <article> element containing the entire HTML
@@ -72,42 +75,12 @@ const createTweetElement = function(tweet) {
   return $divBorder;
 };
 
-
-// HTML of tweet display section for reference
-/*
-        <div class="box tweet-article-border">
-          <article class="tweet-article">
-            <header class="tweet-article-header">
-              <span class="tweet-author-avatar">
-                <img src="https://i.imgur.com/73hZDYK.png" class="tweet-author-image" alt="">
-                <pre> </pre>
-                <p class="tweet-author-name">Newton</p>
-                <pre> </pre>
-              </span>
-              <p class="tweet-author-handle">@SirIsaac</p>
-            </header>
-            <p class="tweet-display-text">Standing on the shoulders of giants</p>
-            <div class="tweet-footer">
-              <p class="tweet-days-ago">10 days ago</p>
-              <span class="tweet-article-footer-icons">
-                <i class="fas fa-flag tweet-flag-icon"></i>
-                <pre> </pre>
-                <i class="fas fa-retweet tweet-retweet-icon"></i>
-                <pre> </pre>
-                <i class="fas fa-heart tweet-heart-icon"></i>
-                <pre> </pre>
-              </span>
-            </div>
-          </article>
-        </div>
-*/
-
 // generate a tweet object based on current tweet input
 const getTweet = function(tweetTextInput) {
   // form[0]textarea.value := input text
   let tweet = {
     "user": {
-      "name": "IAmGroot",
+      "name": "I Am Groot",
       "avatars": "https://i.imgur.com/73hZDYK.png",
       "handle": "@IAmGroot"
     },
@@ -120,17 +93,7 @@ const getTweet = function(tweetTextInput) {
   return tweet;
 };
 
-// Handler for counter color as per
-// the text input length
-const setCounterColor = function(counter) {
-  if (counter < 0) {
-    $(".counter").css("color", "red");
-  } else {
-    $(".counter").css("color", "black");
-  }
-};
-
-// comparator for the tweet time
+// compare function based on the tweet creation time
 const compareTweetTime = function(tw1, tw2) {
   return tw1.created_at - tw2.created_at;
 };
@@ -143,9 +106,9 @@ const renderTweets = function(tweets) {
 
   // first clear the current tweets if any from the tweets section
   $tweetsSection.empty();
-  let $tweet;
 
   // sort the tweets
+  let $tweet;
   tweets.sort(compareTweetTime);
 
   for (const tweet of tweets) {
@@ -214,12 +177,26 @@ const tweetSubmitHandler = function(event) {
   });
 };
 
-// App html loaded and perform the initial setup
+/**
+ * App html loaded and perform the initial setup
+ */
 $(document).ready(() => {
-  // this is the initial one time
-  // setup of the tweets section on app
-  getTweetsFromServer();
+
+  // hide the init html dummy tweet box
+  $tweetsSection.empty();
+
+  tweetComposeToggleIcon.click(tweetInputToggler);
+
+  // When the user scrolls down 20px from the
+  // top of the document, show the button
+  window.onscroll = function() {
+    scrollFunction();
+  };
 
   // setup tweet button handler for tweet submit
   $tweetInputForm.submit(tweetSubmitHandler);
+
+  // this is the initial one time
+  // setup of the tweets section on app
+  getTweetsFromServer();
 });

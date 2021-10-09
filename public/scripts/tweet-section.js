@@ -8,6 +8,5 @@ $(document).ready(function() {
   }).mouseleave(function() {
     $(this).css("box-shadow", "0px 0px 0px #555");
   });
-
 });
 

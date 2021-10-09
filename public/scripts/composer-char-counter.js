@@ -1,8 +1,30 @@
 const MAX_TWEET_LENGTH = 140;
 let twtxtInput = "";
+
+// will be init after document reeady
 let tweetTextInputArea;
 
-const setTweetCounterColor = function(counter) {
+// tweet text input handler
+const textInputHandler = function(event) {
+
+  // save latest tweet text value
+  twtxtInput = event.target.value;
+
+  // set counter value as per the latest tweet text
+  const counterOp = this.form[2];
+  let counter = counterOp.value;
+  counterOp.value = MAX_TWEET_LENGTH - twtxtInput.length;
+  counter = counterOp.value;
+  console.log(`Counter after input ${counter}`);
+
+  // set apt counter color
+  setCounterColor(counter);
+
+};
+
+// Handler for counter color as per
+// the text input length
+const setCounterColor = function(counter) {
   if (counter < 0) {
     $(".counter").css("color", "red");
   } else {
@@ -19,22 +41,30 @@ const setTweetButtonState = function(counter) {
   }
 };
 
-// tweet text input handler
-const textInputHandler = function(event) {
+const scrollFunction = function() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    $goToTopButtom.attr("style", "display:block");
+  } else {
+    $goToTopButtom.attr("style", "display:none");
+  }
+};
 
-  // save latest tweet text value
-  twtxtInput = event.target.value;
+// When the user clicks on the button,
+// scroll to the top
+const goToTopHandler = function() {
+  $('html, body').animate({scrollTop:0}, 'slow');
+  $tweetInputForm.show(700);
+  $tweetInputTextArea.focus();
+};
 
-  // set counter value as per the latest tweet text
-  const counterOp = this.form[2];
-  let counter = counterOp.value;
-  counterOp.value = MAX_TWEET_LENGTH - twtxtInput.length;
-  counter = counterOp.value;
-  console.log(`Counter after input ${counter}`);
-
-  // set apt counter color
-  setTweetCounterColor(counter);
-
+const tweetInputToggler = function() {
+  // check paragraph once toggle effect is completed
+  if (!$tweetInputForm.is(":visible")) {
+    goToTopHandler();
+  } else {
+    $tweetInputForm.hide(700);
+    $tweetInputTextArea.blur();
+  }
 };
 
 // After HTML document is loaded

@@ -48,9 +48,9 @@
           <span class="write-a-new-tweet">
             <span> <strong>Write</strong> a new tweet</span>
           </span>
-        <div class="down-arrow1">
-          <i class="fa fa-angle-double-down bounce" ></i>
-        </div>
+          <div class="down-arrow1">
+            <i class="fa fa-angle-double-down bounce" id="tweet-compose-toggle-icon"></i>
+          </div>
         </div>
       </nav>
       <header class="tweeter-user-header">
@@ -103,11 +103,14 @@
           </article>
         </div>
       </section>
+      <div id="go-to-top-button-footer">
+        <button onclick="goToTopHandler()" id="go-to-top-button" title="Go to top">Top</button>
+      <div>
     </main>
   </body>
 
   <!-- App JS -->
-  <script type="text/javascript" src="/scripts/client.js"></script>
   <script type="text/javascript" src="/scripts/tweet-section.js"></script>
   <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
+  <script type="text/javascript" src="/scripts/client.js"></script>
 </html>
