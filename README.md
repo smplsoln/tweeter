@@ -24,8 +24,17 @@ This repository is the starter code for the project: Students will fork and clon
 ## Final Product
 
 !["Tweeter Initial Home page"](https://github.com/smplsoln/tweeter/blob/master/docs/Tweeter-Initial-Home-page.png)
-
-
+!["Tweet_Compose_Counter_Shows_correct_Input_char_count"](https://github.com/smplsoln/tweeter/blob/master/docs/Tweet_Compose_Counter_Shows_correct_Input_char_count.png
+!["Tweet_counter_shows_red_count_of_chars_above_limit"](https://github.com/smplsoln/tweeter/blob/master/docs/Tweet_counter_shows_red_count_of_chars_above_limit.png
+!["New_tweet_entered_shown_at_top"](https://github.com/smplsoln/tweeter/blob/master/docs/New_tweet_entered_shown_at_top.png
+!["Tweet_bottom_icons_change_color_on_mouse_hover"](https://github.com/smplsoln/tweeter/blob/master/docs/Tweet_bottom_icons_change_color_on_mouse_hover.png
+!["Error_for_empty_tweet"](https://github.com/smplsoln/tweeter/blob/master/docs/Error_for_empty_tweet.png
+!["Error_for_exceeding_char_limit"](https://github.com/smplsoln/tweeter/blob/master/docs/Error_for_exceeding_char_limit.png
+!["Tw_compose_toggled_close_clicking_top_right_down_arrow"](https://github.com/smplsoln/tweeter/blob/master/docs/Tw_compose_toggled_close_clicking_top_right_down_arrow.png
+!["Tw_compose_shown_back_with_focus_in_textinput_clicking_top_arrow"](https://github.com/smplsoln/tweeter/blob/master/docs/Tw_compose_shown_back_with_focus_in_textinput_clicking_top_arrow.png
+!["Top_button_shown_when_scrolled_down"](https://github.com/smplsoln/tweeter/blob/master/docs/Top_button_shown_when_scrolled_down.png
+!["Top_button_background_changed_onMouse_hover"](https://github.com/smplsoln/tweeter/blob/master/docs/Top_button_background_changed_onMouse_hover.png
+!["Back_to_top_With_focus_in_textinput_after_clicking_top_button"](https://github.com/smplsoln/tweeter/blob/master/docs/Back_to_top_With_focus_in_textinput_after_clicking_top_button.png
 
 ## Getting Started
 
