@@ -23,7 +23,7 @@ This repository is the starter code for the project: Students will fork and clon
 
 ## Final Product
 
-!["Tweeter Initial Home page"](https://github.com/smplsoln/tweeter/blob/master/docs/Tweeter Initial Home page.png)
+!["Tweeter Initial Home page"](https://github.com/smplsoln/tweeter/blob/master/docs/Tweeter-Initial-Home-page.png)
 
 
 
