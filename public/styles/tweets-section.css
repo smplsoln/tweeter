@@ -35,16 +35,28 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  text-align: center;
   justify-content: space-between;
   justify-self: left;
-  width: 25px;
-  height: 35px;
 }
 
 .tweet-author-image {
   background-color: transparent;
   width: 2em;
   height: 2em;
+}
+
+.tweet-author-name {
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.tweet-author-name::before,
+.tweet-author-name::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid #000;
 }
 
 .tweet-author-handle {

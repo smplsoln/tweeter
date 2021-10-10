@@ -23,24 +23,24 @@ This repository is the starter code for the project: Students will fork and clon
 
 ## Final Product
 
+!["Tweeter Initial Home page"](https://github.com/smplsoln/tweeter/blob/master/docs/Tweeter Initial Home page.png)
+
+
 
 ## Getting Started
 
 - Install all dependencies (using the `npm install` command).
 - Run the development web server using one of the  following commands:
   - `npm start := "node server/index.js",`
-  - `local := "./node_modules/.bin/nodemon --watch server -e js server/index.js"`
+  - `npm run local := "./node_modules/.bin/nodemon --watch server -e js server/index.js"`
 
 # Tweeter app includes the following
-Apart from implementing all the major, minor requirements have additionally added
- - Completed the stretch requirement of
-   - implementation of the compose tweet toggler icon at top right
-   - got to top button at the bottom right
-   - Added Favicon support
+Apart from implementing all the major, minor requirements have additionally completed the stretch requirement of
+ - Implementation of the compose tweet toggler icon at top right
+ - Go-to-top button at the bottom right
+ - Added Favicon support with TWeeter icon for browser tab.
 
 # Possible Future Enhancements
-  - Refactor the server side logic to make is restful and provide a restful API
-  - Separate out the view and base it on the use of REST apis underneath
   - Improve observability by adding appropriate logging on server side
   - Add integrated metrics tracking
   - Move the UI esp the views to a better framework having better easier control on components and refactor/componentize it further

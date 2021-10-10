@@ -31,7 +31,7 @@ const createTweetElement = function(tweet) {
     .attr("src", tweet.user.avatars)
     .attr("alt", "");
   const $pre1 = $("<pre>").text(" ");
-  const $p1 = $("<p>").addClass("tweet-author-name")
+  const $p1 = $("<span>").addClass("tweet-author-name")
     .text(tweet.user.name);
   const $pre2 = $("<pre>").text(" ");
 
